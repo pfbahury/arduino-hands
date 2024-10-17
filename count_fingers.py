@@ -8,7 +8,7 @@ mp_hands = mp.solutions.hands
 hands = mp_hands.Hands(max_num_hands = 1)
 mp_drawing = mp.solutions.drawing_utils
 
-arduinoData = serial.Serial("com4", 9600)
+arduinoData = serial.Serial("com8", 9600)
 time.sleep(1)
 
 cap = cv.VideoCapture(0)
@@ -62,7 +62,7 @@ while True:
             hand_fingers = fingers_raised(hand_landmarks)
             # Count the number of fingers raised
             numFingers = sum(finger == True for finger in hand_fingers.values())
-            print(numFingers)
+            arduinoData.write(str(numFingers).encode())
 
     cv.imshow("frame", frame)
 

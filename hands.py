@@ -7,7 +7,7 @@ mp_hands = mp.solutions.hands
 hands = mp_hands.Hands(max_num_hands = 1)
 mp_drawing = mp.solutions.drawing_utils
 
-arduinoData = serial.Serial("com4", 9600)
+arduinoData = serial.Serial("com8", 9600)
 time.sleep(1)
 
 def is_hand_closed(hand_landmarks):
