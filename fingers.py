@@ -62,6 +62,7 @@ while True:
             hand_fingers = fingers_raised(hand_landmarks)
             # Count the number of fingers raised
             numFingers = sum(finger == True for finger in hand_fingers.values())
+            print(numFingers)
 
     cv.imshow("frame", frame)
 
