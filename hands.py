@@ -1,13 +1,19 @@
+import os
 import cv2 as cv
 import mediapipe as mp
 import time
 import serial
+from dotenv import load_dotenv
+
+load_dotenv()
+
+PORT = os.getenv("SERIAL_PORT")
 
 mp_hands = mp.solutions.hands
 hands = mp_hands.Hands(max_num_hands = 1)
 mp_drawing = mp.solutions.drawing_utils
 
-arduinoData = serial.Serial("com8", 9600)
+arduinoData = serial.Serial(PORT, 9600)
 time.sleep(1)
 
 def is_hand_closed(hand_landmarks):
